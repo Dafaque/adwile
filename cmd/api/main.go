@@ -28,6 +28,9 @@ func NewApi() Api {
 		}
 		api.cfg = cfg
 		api.saver = storage.NewStorageSQLite3(cfg.ConnStr, cfg.DbOpTimeoutSec, false)
+		if api.saver == nil {
+			panic("DB is not opened")
+		}
 	}
 	api.Server = http.Server{
 		Addr: ":8080",
