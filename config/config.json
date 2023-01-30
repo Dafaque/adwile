@@ -1,0 +1,24 @@
+{
+    "conn_str": "file:tmp/storage.sqlite?cache=shared",
+    "db_enable_stdout": true,
+    "db_op_timeout_sec": 1, 
+    "check_timeout_sec": 1,
+    "http_client_timeout_sec": 1,
+    "urls": [
+        {
+            "url": "http://ya.ru",
+            "checks": ["status_code", "text"],
+            "min_checks_cnt": 2
+        },
+        {
+            "url": "http://vk.com",
+            "checks": ["status_code"],
+            "min_checks_cnt": 1
+        },
+        {
+            "url": "http://mail.ru",
+            "checks": ["status_code", "text"],
+            "min_checks_cnt": 1
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS checks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ts INTEGER NOT NULL,
+    uri VARCHAR(50) NOT NULL,
+    check_status INT NOT NULL,
+    err_msg TEXT NULL
+);
+
+CREATE TABLE IF NOT EXISTS check_fail_details (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    check_id INTEGER NOT NULL REFERENCES checks(id),
+    label VARCHAR(50)
+);

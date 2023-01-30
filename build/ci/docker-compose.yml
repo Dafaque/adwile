@@ -1,0 +1,12 @@
+services:
+  ofelia:
+    image: mcuadros/ofelia:latest
+    command: daemon --docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    labels:
+      - ofelia.job-run.healthcheck-start.schedule=@every 5s
+      - ofelia.job-run.healthcheck-start.image=healthcheck:latest
+      # - ofelia.job-run.healthcheck-start.volume=/var/storage.sqlite:storage.sqlite:rw
+      # Нужен абсолютный путь. На серверной машине можно проставить заранее известный. Ну или не использовать slite вообще
+
